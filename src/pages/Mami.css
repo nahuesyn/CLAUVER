@@ -1,0 +1,27 @@
+.mami {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.mami-bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  transform: scale(1.06);
+  z-index: -2;
+}
+
+.mami-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.52);
+  z-index: -1;
+}
+
+.mami-content {
+  padding: 5rem;
+  min-height: calc(100vh - 64px);
+}

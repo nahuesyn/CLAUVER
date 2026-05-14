@@ -1,0 +1,282 @@
+.home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ── YouTube 풀스크린 배경 ── */
+.home-video-bg {
+  position: fixed;
+  /* 위아래로 80px씩 넘겨서 YouTube 타이틀/브랜딩 크롭 */
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 160px);
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-video-bg iframe {
+  position: absolute;
+  /* 16:9 비율 유지하며 뷰포트 전체를 덮도록 */
+  width: 100vw;
+  height: 56.25vw;   /* 100 / 16 * 9 */
+  min-height: 100vh;
+  min-width: 177.78vh; /* 100 / 9 * 16 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+}
+
+/* YouTube hover UI 완전 차단 */
+.home-video-block {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* 어두운 오버레이 */
+.home-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: -1;
+}
+
+/* ── 히어로 레이아웃 ── */
+.home-hero {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 4rem 4rem 4rem 5rem;
+  gap: 3rem;
+}
+
+/* 왼쪽 */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+}
+
+
+.hero-comeback-logo {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  margin-bottom: 1.4rem;
+}
+
+.hero-sub {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  margin-bottom: 1.1rem;
+}
+
+.hero-desc {
+  font-size: 0.875rem;
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1.4rem;
+}
+
+/* 버튼이 위 텍스트와 같은 너비를 갖도록 wrapper로 묶음 */
+.hero-desc-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 2.4rem;
+}
+
+.btn-outline {
+  width: 20%;
+  padding: 0.72rem 0;
+  margin-top: 1rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 오른쪽 */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 트랙리스트 카드 */
+.tracklist-card {
+  background: rgba(8, 8, 12, 0.78);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tracklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.tracklist-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tracklist-count {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.track-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.72rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: background 0.18s;
+}
+
+.track-row:last-child {
+  border-bottom: none;
+}
+
+.track-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* 번호 + 재생버튼 wrapper */
+.track-num-wrap {
+  position: relative;
+  min-width: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-num {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.2);
+  font-variant-numeric: tabular-nums;
+  transition: opacity 0.15s;
+}
+
+.track-play-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+  line-height: 1;
+}
+
+.track-play-btn--disabled {
+  color: rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.track-row:hover .track-num {
+  opacity: 0;
+}
+
+.track-row:hover .track-play-btn {
+  opacity: 1;
+}
+
+/* 재생 중일 때는 항상 표시 */
+.track-row--playing .track-num {
+  opacity: 0;
+}
+
+.track-row--playing .track-play-btn {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.track-name {
+  flex: 1;
+}
+
+.track-duration {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.25);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.track-more-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.track-row:hover .track-more-btn {
+  opacity: 1;
+}
+
+.track-more-btn:hover {
+  color: var(--accent);
+}
+
+.track-row--title {
+  border-left: 2px solid var(--accent);
+  padding-left: calc(1.2rem - 2px);
+}
+
+.track-row--title .track-num {
+  color: var(--accent);
+}
+
+.track-row--title .track-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.track-badge {
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.13rem 0.38rem;
+}
