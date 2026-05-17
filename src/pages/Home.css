@@ -57,6 +57,12 @@
   .home-video-bg {
     display: none;
   }
+
+  .home {
+    background-image: url('/main.webp');
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 /* 어두운 오버레이 */
