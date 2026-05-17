@@ -5,7 +5,7 @@ import SnsLinks from '../components/SnsLinks'
 import './Home.css'
 
 const tracklist = [
-  { num: '01', title: 'GRWM (Get Ready With Me)', slug: 'grwm',             duration: '2:49', youtubeId: null },
+  { num: '01', title: 'GRWM (Get Ready With Me)', slug: 'grwm',             duration: '2:49', youtubeId: 'pJusqOVhoFk' },
   { num: '02', title: "It's Me", isTitle: true,   slug: 'its-me',           duration: '2:19', youtubeId: 'bMhDJ0S0OBA' },
   { num: '03', title: 'paw, paw!',                slug: 'paw-paw',          duration: '2:30', youtubeId: null },
   { num: '04', title: 'Mamihlapinatapai',          slug: 'mamihlapinatapai', duration: '3:02', youtubeId: null },
