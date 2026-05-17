@@ -25,6 +25,8 @@ export default function Mami() {
           <p>또 한 번의 음악 스펙트럼 확장…모두의 '최애' 꿈꾸는 아일릿 코어</p>
         </div>
 
+        <img src="/profile.webp" alt="MAMIHLAPINATAPAI 프로필" className="mami-img mami-img--profile" />
+
         <div className="mami-body">
           <p>
             그룹 아일릿(ILLIT)의 미니 4집 'MAMIHLAPINATAPAI'(마밀라피나타파이)가 4월 30일 발매됐다.
@@ -86,7 +88,6 @@ export default function Mami() {
         </div>
 
         <div className="mami-images">
-          <img src="/profile.webp" alt="MAMIHLAPINATAPAI 프로필" className="mami-img mami-img--profile" />
           <img src="/schedule.webp" alt="MAMIHLAPINATAPAI 스케줄" className="mami-img mami-img--schedule" />
         </div>
       </div>
