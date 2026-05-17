@@ -4,8 +4,13 @@ import Footer from '../components/Footer'
 import './Discography.css'
 
 function AlbumCard({ album }) {
+  const [touched, setTouched] = useState(false)
+
   return (
-    <div className="album-card">
+    <div
+      className={`album-card${touched ? ' album-card--active' : ''}`}
+      onClick={() => setTouched((v) => !v)}
+    >
       {album.isNew && <span className="album-card-new">최신</span>}
       <div className="album-img-wrap">
         <img src={album.img} alt={album.title} loading="lazy" />
