@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { assets } from '../data/assets'
 import SnsLinks from '../components/SnsLinks'
+import { useAudio } from '../context/AudioContext'
 import './Home.css'
 
 const tracklist = [
@@ -18,9 +18,7 @@ function ytSrc(id) {
 
 export default function Home() {
   const navigate = useNavigate()
-  const [playingSlug, setPlayingSlug] = useState(null)
-  const [activeSrc, setActiveSrc] = useState('')
-  const iframeRef = useRef(null)
+  const { playingSlug, setPlayingSlug, activeSrc, setActiveSrc, iframeRef } = useAudio()
 
   function handlePlay(e, track) {
     e.stopPropagation()
@@ -45,14 +43,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      <iframe
-        ref={iframeRef}
-        key={activeSrc}
-        src={activeSrc || undefined}
-        allow="autoplay; encrypted-media"
-        title="audio-player"
-        style={{ position: 'fixed', bottom: '-2px', left: '-2px', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none' }}
-      />
 
       {/* YouTube 풀스크린 배경 */}
       <div className="home-video-bg">
