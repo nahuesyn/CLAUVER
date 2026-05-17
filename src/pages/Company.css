@@ -55,6 +55,14 @@
   margin-bottom: 0.8rem;
 }
 
+.co-logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.8rem;
+}
+
 .co-tagline {
   font-size: 0.82rem;
   color: var(--muted);

@@ -1,15 +1,6 @@
-import { useState } from 'react'
 import { useInView } from '../hooks/useInView'
 import Footer from '../components/Footer'
 import './Company.css'
-
-const BELIFT_LOGO = 'https://i.namu.wiki/i/B03LXZDnVn536yd7pFlznceTwmeiZLL9UlG89YuUmE5JpCQDHixaHGBGCWyFnZyrn9c2T9HPSN3XnWydoer52eg5oC3OpPfnm-jBEfHSxC_QaSbrb8ZXFqmjcBhVCnycuqU9h9sRn9ufzfQ_VFDiOw.svg'
-
-function LabelLogo({ logo, name }) {
-  const [err, setErr] = useState(false)
-  if (!logo || err) return <span>{name}</span>
-  return <img src={logo} alt={name} className="label-logo" onError={() => setErr(true)} />
-}
 
 const stats = [
   { label: 'Spotify 총 스트리밍', value: '20억+', sub: '5세대 K-POP 최단기록' },
@@ -21,7 +12,7 @@ const stats = [
 const labels = [
   {
     name: 'BELIFT LAB',
-    logo: BELIFT_LOGO,
+    logo: null,
     desc: 'HYBE와 CJ ENM이 2019년 설립한 합작 레이블. "Believe in the future"를 슬로건으로 차세대 아티스트를 발굴·육성합니다. ENHYPEN과 ILLIT을 보유하고 있으며, 서바이벌 오디션을 통한 독창적인 멤버 선발 방식으로 주목받고 있습니다.',
     tags: ['HYBE', 'CJ ENM', '설립 2019', 'ENHYPEN', 'ILLIT'],
   },
@@ -67,11 +58,7 @@ export default function Company() {
 
         <div className="co-right">
           <div className="co-logo-wrap">
-            <img
-              src={BELIFT_LOGO}
-              alt="BELIFT LAB"
-              className="co-logo-img"
-            />
+            <p className="co-logo-text">BE:LIFT LAB</p>
             <p className="co-tagline">"Believe in the future" — 미래를 믿는 레이블.</p>
           </div>
           <div className="co-stats">
@@ -86,7 +73,9 @@ export default function Company() {
         {labels.map((l) => (
           <div key={l.name} className="label-card">
             <div className="label-name">
-              <LabelLogo logo={l.logo} name={l.name} />
+              {l.logo
+                ? <img src={l.logo} alt={l.name} className="label-logo" />
+                : <span>{l.name}</span>}
             </div>
             <p className="label-desc">{l.desc}</p>
             <div className="label-tags">
