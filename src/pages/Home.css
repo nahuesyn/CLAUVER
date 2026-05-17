@@ -281,28 +281,12 @@
   padding: 0.13rem 0.38rem;
 }
 
-@media (max-width: 1024px) {
-  .home-hero {
-    grid-template-columns: 1fr;
-    padding: 3rem 2rem;
-    gap: 2.5rem;
-    min-height: unset;
-    padding-bottom: 4rem;
-  }
-
-  .hero-comeback-logo {
-    max-width: 420px;
-  }
-
-  .btn-outline {
-    width: 40%;
-  }
-}
-
 @media (max-width: 768px) {
   .home-hero {
+    grid-template-columns: 1fr;
     padding: 2rem 1.4rem 3rem;
     gap: 2rem;
+    min-height: unset;
   }
 
   .hero-comeback-logo {
