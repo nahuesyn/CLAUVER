@@ -203,3 +203,32 @@
 .track-credit-val {
   color: rgba(255, 255, 255, 0.65);
 }
+
+@media (max-width: 900px) {
+  .track-content {
+    padding: 3rem 2rem;
+  }
+
+  .track-body {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .track-sidebar {
+    width: 100%;
+  }
+
+  .track-nav {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .track-content {
+    padding: 2rem 1.4rem;
+  }
+
+  .track-title {
+    font-size: 2.2rem;
+  }
+}

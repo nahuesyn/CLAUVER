@@ -124,3 +124,13 @@
 .mami-img--schedule {
   object-fit: contain;
 }
+
+@media (max-width: 768px) {
+  .mami-content {
+    padding: 2rem 1.4rem;
+  }
+
+  .mami-title {
+    font-size: 1.7rem;
+  }
+}
