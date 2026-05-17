@@ -215,13 +215,33 @@
 
 @media (max-width: 768px) {
   .disco-header {
-    padding: 2.5rem 1.4rem 2rem;
+    padding: 2.5rem 1.4rem 0;
+  }
+
+  .disco-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .disco-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .disco-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.6rem 1rem;
   }
 
   .disco-grid {
     grid-template-columns: repeat(2, 1fr);
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     gap: 0;
+    border-top: none;
+    margin-top: 1.5rem;
   }
 
   .album-overlay {
