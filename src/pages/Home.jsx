@@ -62,6 +62,7 @@ export default function Home() {
           title="ILLIT MV"
         />
         <div className="home-video-block" />
+        <div className="home-video-cover" />
       </div>
 
       <div className="home-overlay" />

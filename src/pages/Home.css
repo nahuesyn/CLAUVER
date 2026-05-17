@@ -37,6 +37,21 @@
   z-index: 1;
 }
 
+/* 초기 플레이 아이콘 가리기 */
+.home-video-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--bg);
+  animation: coverFadeOut 1.8s ease forwards;
+}
+
+@keyframes coverFadeOut {
+  0%   { opacity: 1; }
+  60%  { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
 /* 어두운 오버레이 */
 .home-overlay {
   position: fixed;
