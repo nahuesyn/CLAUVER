@@ -60,6 +60,7 @@ export default function Home() {
           src="https://www.youtube.com/embed/bMhDJ0S0OBA?start=8&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=bMhDJ0S0OBA&modestbranding=1&showinfo=0&iv_load_policy=3&disablekb=1"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
           title="ILLIT MV"
+          style={{ pointerEvents: 'none' }}
         />
         <div className="home-video-block" />
         <div className="home-video-cover" />
