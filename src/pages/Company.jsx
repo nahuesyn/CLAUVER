@@ -1,8 +1,15 @@
+import { useState } from 'react'
 import { useInView } from '../hooks/useInView'
 import Footer from '../components/Footer'
 import './Company.css'
 
 const BELIFT_LOGO = 'https://i.namu.wiki/i/B03LXZDnVn536yd7pFlznceTwmeiZLL9UlG89YuUmE5JpCQDHixaHGBGCWyFnZyrn9c2T9HPSN3XnWydoer52eg5oC3OpPfnm-jBEfHSxC_QaSbrb8ZXFqmjcBhVCnycuqU9h9sRn9ufzfQ_VFDiOw.svg'
+
+function LabelLogo({ logo, name }) {
+  const [err, setErr] = useState(false)
+  if (!logo || err) return <span>{name}</span>
+  return <img src={logo} alt={name} className="label-logo" onError={() => setErr(true)} />
+}
 
 const stats = [
   { label: 'Spotify 총 스트리밍', value: '20억+', sub: '5세대 K-POP 최단기록' },
@@ -79,11 +86,7 @@ export default function Company() {
         {labels.map((l) => (
           <div key={l.name} className="label-card">
             <div className="label-name">
-              {l.logo ? (
-                <img src={l.logo} alt={l.name} className="label-logo" />
-              ) : (
-                <span>{l.name}</span>
-              )}
+              <LabelLogo logo={l.logo} name={l.name} />
             </div>
             <p className="label-desc">{l.desc}</p>
             <div className="label-tags">
